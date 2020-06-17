@@ -211,19 +211,20 @@ rerender( <Episodes episodes={epsSeason2} />)
 expect(queryByText(/season 2, episode 1/i)).toBeInTheDocument();
 expect(queryByText(/season 2, episode 9/i)).toBeInTheDocument();
 
-// //title text that should be there
-// //get by text because these are unique
-// expect(getByText(/the mind flayer/i)).toBeInTheDocument();
-// expect(getByText(/the lost sister/i)).toBeInTheDocument();
+//title text that should be there
+//get by text because these are unique
+// expect(getByText(/The Mind Flayer/i)).toBeInTheDocument();
+expect(getByText(/the lost sister/i)).toBeInTheDocument();
+
 
 // //synopsis text that should be there
-// expect(getByText(/Owens and his team try to find a way to end the shadow creature's influence on Will. Meanwhile, Dustin and Lucas find unlikely allies in their quest to find Dart./i)).toBeInTheDocument();
+expect(getByText(/Owens and his team try to find a way to end the shadow creature's influence on Will. Meanwhile, Dustin and Lucas find unlikely allies in their quest to find Dart./i)).toBeInTheDocument();
 
-// expect(getByText(/Jim is trapped in the Upside Down, and Joyce enlists Bob to help find him. Meanwhile, Nancy and Jonathan go to Murray, and El learns about the circumstances surrounding her birth./i)).toBeInTheDocument();
+expect(getByText(/Jim is trapped in the Upside Down, and Joyce enlists Bob to help find him. Meanwhile, Nancy and Jonathan go to Murray, and El learns about the circumstances surrounding her birth./i)).toBeInTheDocument();
 
 // //minute text that should be in all of them 
 // //get All by tesxt because there are multiple
-// expect(getAllByText(/60 minutes/i)[0]).toBeInTheDocument();
+expect(getAllByText(/60 minutes/i)[0]).toBeInTheDocument();
 
 
 })
