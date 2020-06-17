@@ -626,37 +626,47 @@ test('render app without errors', () => {
   render (<App />);
 })
 
+
+test("render app before data loads into app", () => {
+  mockFetchShow.mockResolvedValueOnce(allEps);
+
+  const { getByText } = render(<App />);
+
+  expect(getByText(/fetching data.../i)).toBeInTheDocument();
+});
+
+
 test('render data from api', async () => {
   //render the app
   mockFetchShow.mockResolvedValueOnce(allEps);
   const { getByText, getAllByText } = await render(<App />);
 
-//   expect(getAllByText(/stranger things/i)[0]).toBeInTheDocument();
+  expect(getAllByText(/stranger things/i)[0]).toBeInTheDocument();
 
-//   //act - click the dropdown and select season 2 after api runs
-//   //dropdowns use userEvent.click to activate
-//   //use fireEvent.click to chose a selecion
-//   await userEvent.click(getByText(/select a season/i));
-//   await fireEvent.click(getByText(/season 1/i));
+  //act - click the dropdown and select season 2 after api runs
+  //dropdowns use userEvent.click to activate
+  //use fireEvent.click to chose a selecion
+  await userEvent.click(getByText(/select a season/i));
+  await fireEvent.click(getByText(/season 1/i));
 
 
-//   await waitFor(() => {
-//     expect(getByText(/the flea and the acrobat/i)).toBeInTheDocument();
-//   }); 
+  await waitFor(() => {
+    expect(getByText(/the flea and the acrobat/i)).toBeInTheDocument();
+  }); 
 
-//   await waitFor(() => { 
-//     expect(getByText(/the bathtub/i)).toBeInTheDocument();
-//   }); 
-// //second test with season 3 selection
-//   await userEvent.click(getAllByText(/season 1/i)[0]);
-//   await fireEvent.click(getByText(/season 3/i));
+  await waitFor(() => { 
+    expect(getByText(/the bathtub/i)).toBeInTheDocument();
+  }); 
+//second test with season 3 selection
+  await userEvent.click(getAllByText(/season 1/i)[0]);
+  await fireEvent.click(getByText(/season 3/i));
 
-//   await waitFor(() => {
-//     expect(getByText(/the battle of starcourt/i)).toBeInTheDocument();
-//   }); 
+  await waitFor(() => {
+    expect(getByText(/the battle of starcourt/i)).toBeInTheDocument();
+  }); 
 
-//   await waitFor(() => {
-//     expect(getByText(/suzie, do you copy/i)).toBeInTheDocument();
-//   });
+  await waitFor(() => {
+    expect(getByText(/suzie, do you copy/i)).toBeInTheDocument();
+  });
 
 });
