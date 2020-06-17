@@ -641,7 +641,8 @@ test('render data from api', async () => {
   mockFetchShow.mockResolvedValueOnce(allEps);
   const { getByText, getAllByText } = await render(<App />);
 
-  expect(getAllByText(/stranger things/i)[0]).toBeInTheDocument();
+  await waitFor( () => {
+    expect(getAllByText(/stranger things/i)[0]).toBeInTheDocument();})
 
   //act - click the dropdown and select season 2 after api runs
   //dropdowns use userEvent.click to activate
