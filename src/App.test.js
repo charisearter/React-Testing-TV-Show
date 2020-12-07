@@ -226,7 +226,8 @@ const allEps = {
 
 test('render without errors', () => {
     mockFetchShow.mockResolvedValueOnce(allEps);
-    render (<App />);
+     const { debug } = render (<App />);
+     debug()
 })
 
 test('render app before data loads into app', () => {
