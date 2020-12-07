@@ -1,7 +1,7 @@
 import React from 'react'
 import {render} from '@testing-library/react'
 import Episodes from './Episodes'
-import userEvent from '@testing-library/user-event'
+
 const epsSeason2 = [
     {
         "id": 909340,

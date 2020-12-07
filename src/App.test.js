@@ -1,10 +1,8 @@
 import React from 'react';
 
 //import testing methods
-//render - bring it
-//fireEvent - do this Event
-//waitFor - wait for blah
-import { render, fireEvent, waitFor, wait } from '@testing-library/react';
+//render - bring it, fireEvent - do this Event, waitFor - wait for blah
+import { render, fireEvent, waitFor } from '@testing-library/react';
 
 //import the coponent being tested
 import App from './App';
@@ -16,6 +14,7 @@ import userEvent from '@testing-library/user-event'
 //import it as mockFetchShow to avoid confusion and keep everything straight
 
 import { fetchShow as mockFetchShow } from './api/fetchShow'
+//import { fetchShow as mockFetchShow } from './App'
 
 //shortcut that mocks everything in the directory (Dustin showed us this)
 jest.mock('./api/fetchShow');
